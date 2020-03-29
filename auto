@@ -1,0 +1,18 @@
+#!/bin/bash
+
+SCRIPTS_FOLDER="$HOME/bin"
+SCRIPTS_FILE="$SCRIPTS_FOLDER/$1"
+
+
+
+
+if [[ -f $SCRIPTS_FILE ]]; then
+    vim $SCRIPTS_FILE         
+else 
+    echo '#!/bin/bash' > $SCRIPTS_FILE
+    chmod +x $SCRIPTS_FILE
+    vim $SCRIPTS_FILE
+fi
+
+
+echo Script $1 created

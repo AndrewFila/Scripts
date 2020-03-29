@@ -1,6 +1,6 @@
-#Andrew Fila Github/Scripts
+# Andrew Fila Github/Scripts
 
-##Contents
+## Contents
  -  auto - Script to automate creating new bash scripts
  -  polybarstart - script to start polybar
  -  monitorSetup - script to start xrandr with the proper settings

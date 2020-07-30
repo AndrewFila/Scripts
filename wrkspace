@@ -1,0 +1,9 @@
+#!/bin/bash
+
+pkill polybar
+xrandr --output DVI-D-0 --auto --output DP-5 --auto --output HDMI-0 --off
+xrandr --output DVI-D-0 --primary --pos 0x368 --output DP-5 --pos 1920x0 --rotate left
+polybar -q DVI &
+polybar -q DP &
+
+movesink 0

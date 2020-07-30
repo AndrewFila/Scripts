@@ -1,18 +1,14 @@
 #!/bin/bash
 
-SCRIPTS_FOLDER="$HOME/bin"
-SCRIPTS_FILE="$SCRIPTS_FOLDER/$1"
+SCRIPT_FOLDER="$HOME/bin"
+SCRIPT_FILE="$SCRIPT_FOLDER/$1"
 
-
-
-
-if [[ -f $SCRIPTS_FILE ]]; then
-    vim $SCRIPTS_FILE         
+if [[ -f $SCRIPT_FILE ]]; then
+    vim $SCRIPT_FILE
+    echo Script $1 already exist, opening file
 else 
-    echo '#!/bin/bash' > $SCRIPTS_FILE
-    chmod +x $SCRIPTS_FILE
-    vim $SCRIPTS_FILE
+    echo '#!/bin/bash' > $SCRIPT_FILE
+    chmod +x $SCRIPT_FILE
+    vim $SCRIPT_FILE
+    echo Script $1 created
 fi
-
-
-echo Script $1 created

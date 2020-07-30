@@ -1,0 +1,17 @@
+#!/bin/bash
+
+
+
+pkill polybar
+xrandr --output DP-5 --off 
+xrandr --output DVI-D-0 --off
+xrandr --output HDMI-0 --auto
+xrandr --output HDMI-0 --pos 0x0 --primary
+polybar -q HDMI &
+
+lifx off
+
+movesink alsa_output.pci-0000_09_00.1.hdmi-stereo-extra1
+
+
+

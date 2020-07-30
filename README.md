@@ -1,7 +1,7 @@
-# Andrew Fila Github/Scripts
-
-## Contents
- -  auto - Script to automate creating new bash scripts
- -  polybarstart - script to start polybar
- -  monitorSetup - script to start xrandr with the proper settings
- -  spotify_status.py - python script to output spotify status
+# READ ME
+* auto - creates bash templates
+* polybarstart - used to start polybar
+* wrkspace - adjust RandR output for "worspace" theme
+* theater - adjust RandR output for "theater" theme, adjust lights
+* movesink - used to adjust audo output
+ 

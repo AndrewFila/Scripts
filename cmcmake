@@ -1,0 +1,5 @@
+#!/bin/bash
+
+cmc $1.cm
+gcc -c $1.s -o $1.o
+gcc $1.o -o $1

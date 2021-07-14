@@ -1,6 +1,6 @@
 #!/bin/bash
 
-SCRIPT_FOLDER="$HOME/bin"
+SCRIPT_FOLDER="$HOME/scripts"
 SCRIPT_FILE="$SCRIPT_FOLDER/$1"
 
 if [[ -f $SCRIPT_FILE ]]; then

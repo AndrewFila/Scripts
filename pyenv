@@ -1,0 +1,5 @@
+#!/bin/bash
+
+
+export PATH="/usr/local/abaconda/bin:$PATH"
+source activate cs4811

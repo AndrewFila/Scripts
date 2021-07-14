@@ -1,0 +1,54 @@
+#!/bin/bash
+
+TEMPLATE_FOLDER="$HOME/dox/templates"
+DOC_FOLDER="$HOME/dox/latex/$1"
+NEW_FILE="$DOC_FOLDER/$1.tex"
+PDF_FILE="$DOC_FOLDER/$1.pdf"
+
+if [[ -f $NEW_FILE ]]; then
+    zathura $PDF_FILE &
+    cd $DOC_FOLDER
+    vim $NEW_FILE
+    echo document $1 already exists
+elif [[ $2 = 'apa' ]]; then
+    mkdir -p $DOC_FOLDER
+    cp $TEMPLATE_FOLDER/apa.tex $NEW_FILE
+    cd $DOC_FOLDER
+    pdflatex $NEW_FILE
+    zathura $PDF_FILE &
+    vim $NEW_FILE
+elif [[ $2 = 'algebra' ]]; then
+    mkdir -p $DOC_FOLDER
+    cp $TEMPLATE_FOLDER/algebra.tex $NEW_FILE
+    cd $DOC_FOLDER
+    pdflatex $NEW_FILE
+    zathura $PDF_FILE &
+    vim $NEW_FILE
+elif [[ $2 = 'algo' ]]; then
+    mkdir -p $DOC_FOLDER
+    cp $TEMPLATE_FOLDER/algorithms.tex $NEW_FILE
+    cd $DOC_FOLDER
+    pdflatex $NEW_FILE
+    zathura $PDF_FILE &
+    vim $NEW_FILE
+elif [[ $2 = 'cseth' ]]; then
+    mkdir -p $DOC_FOLDER
+    cp $TEMPLATE_FOLDER/cseth.tex $NEW_FILE
+    cd $DOC_FOLDER
+    pdflatex $NEW_FILE
+    zathura $PDF_FILE &
+    vim $NEW_FILE
+elif [[ $2 = 'ai' ]]; then
+    mkdir -p $DOC_FOLDER
+    cp $TEMPLATE_FOLDER/ai.tex $NEW_FILE
+    cd $DOC_FOLDER
+    pdflatex $NEW_FILE
+    zathura $PDF_FILE &
+    vim $NEW_FILE
+else
+    echo "USAGE: lateh <Document Name> <Format>
+    Possible formats: apa, algebra, algo, cseth"
+fi
+
+
+

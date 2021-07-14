@@ -1,0 +1,12 @@
+#!/bin/bash
+
+
+echo -e "\n\e[1;31m ███████╗██╗██╗      █████╗\e[0m        \e[1;32mOS: \e[0m    $(grep "PRETTY_NAME=" /etc/os-release | sed 's/PRETTY_NAME=//g ; s/"//g')";
+echo -e "\e[1;32m ██╔════╝██║██║     ██╔══██╗\e[0m       \e[1;33mWM:\e[0m     I3";
+echo -e '\e[1;33m █████╗  ██║██║     ███████║\e[0m       \e[1;34mCPU:\e[0m    AMD Ryzen 5 1600X Six-Core Processor';
+echo -e "\e[1;34m ██╔══╝  ██║██║     ██╔══██║\e[0m       \e[1;35mGPU:\e[0m    GeForce GTX 1070";
+echo -e "\e[1;35m ██║     ██║███████╗██║  ██║\e[0m       \e[1;36mUPTIME:\e[0m ";
+echo -e "\e[1;36m ╚═╝     ╚═╝╚══════╝╚═╝  ╚═╝\e[0m       \e[1;37mMUSIC:\e[0m  $(playerctl metadata artist) -- $(playerctl metadata title)";
+
+#echo -e " \e[1;30m████\e[0m\e[1;31m████\e[0m\e[1;32m████\e[0m\e[1;33m████\e[0m\e[1;34m████\e[0m\e[1;35m████\e[0m\e[1;36m████\e[0m\e[1;37m████\e[0m"
+#echo -e " \e[1;30m████\e[0m\e[1;31m████\e[0m\e[1;32m████\e[0m\e[1;33m████\e[0m\e[1;34m████\e[0m\e[1;35m████\e[0m\e[1;36m████\e[0m\e[1;37m████\e[0m\n"

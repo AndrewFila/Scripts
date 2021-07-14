@@ -1,0 +1,9 @@
+#!/bin/bash
+
+pidof dunst && killall dunst
+dunst &
+
+notify-send "Test"
+notify-send "Test1"
+notify-send "Test2"
+notify-send "Test3"

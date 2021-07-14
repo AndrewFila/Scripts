@@ -1,0 +1,7 @@
+#!/bin/bash
+
+
+gcc main.c -o main
+gcc qsort.c -o qsort
+gcc merge.c -o merge
+./main < input-file

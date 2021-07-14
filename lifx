@@ -1,0 +1,73 @@
+#!/bin/bash
+
+#SCENES SETUP
+#Scenes are set up here with with a variable set to the key for each scene in the form VAR="xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
+#4 scenes are set up by default you can add more by simply creating a new variable and editing the "if statement" below under #SCENES
+
+NL="ee10db1d-5d5c-4987-b4a3-8142edea6b7a"
+RGB="de1ab518-7787-4c7f-827d-b4df4f044098"
+WEED="adf748bc-a5a4-484c-96c5-b10b1d0f65b1"
+GRAPE="3f544837-24ee-4e5f-9921-1dd77fc90c76"
+
+BEARER="c36a44cb91da9432817a9ffb0670524036bf1aa5128ee61e8cc7c9586e3f287d"
+
+#TOGGLE
+if [[ $1 = toggle ]]; then
+    curl -X POST "https://api.lifx.com/v1/lights/all/toggle" -H "Authorization: Bearer $BEARER"
+
+
+#OFF
+elif [[ $1 = off ]]; then
+    curl -X PUT "https://api.lifx.com/v1/lights/all/state" -H "Authorization: Bearer $BEARER" -d "power=off"
+
+
+#WHITE
+elif [[ $1 = white ]]; then
+    curl -X PUT "https://api.lifx.com/v1/lights/all/state" -H "Authorization: Bearer $BEARER " -d "color=kelvin:$3 brightness:$2"
+
+
+#COLOR
+elif [[ $1 = color ]]; then
+    curl -X PUT "https://api.lifx.com/v1/lights/all/state" -H "Authorization: Bearer $BEARER" -d "color=hue:$2 saturation:$3 brightness:$4"
+
+
+#SCENES
+
+elif [[ $1 = scene ]]; then
+   #TO ADD NEW SCENES EDIT BELOW
+
+    if [[ $2 = 0 ]]; then
+    curl -X PUT "https://api.lifx.com/v1/scenes/scene_id:$NL/activate" -H "Authorization: Bearer $BEARER"
+    elif [[ $2 = 1 ]]; then
+    curl -X PUT "https://api.lifx.com/v1/scenes/scene_id:$RGB/activate" -H "Authorization: Bearer $BEARER"
+
+    elif [[ $2 = 2 ]]; then
+    curl -X PUT "https://api.lifx.com/v1/scenes/scene_id:$WEED/activate" -H "Authorization: Bearer $BEARER"
+
+    elif [[ $2 = 3 ]]; then
+    curl -X PUT "https://api.lifx.com/v1/scenes/scene_id:$GRAPE/activate" -H "Authorization: Bearer $BEARER"
+
+    #In this are add new scenes by copying the format from the above and changing the scene variable denoted by scene_id:$SCENE
+
+
+
+
+    fi
+#GET SCENES
+elif [[ $1 = getScene ]]; then
+    curl "https://api.lifx.com/v1/scenes" -H "Authorization: Bearer $BEARER" | grep -e "uuid" -e "name"
+
+
+#HELP
+elif [[ $1 = '-h' || $1 = 'help' ]]; then
+    echo "Usage: lifx <off, toggle, white, color, scene, getScenes> [Options] ...
+            <off> turn all lights off
+            <toggle> turn lights on or off
+            <white> <brightness:[0.0 -- 1.0]> <kelvin:[1500 -- 9000]> sets white color for all lights
+            <color> <hue[0 -- 360]> <saturation:[0.0 -- 1.0]> <brightness:[0.0 -- 1.0]> sets color for all lights
+            <scene> <scene name> sets scenes
+            <getScenes> displays scene names and number
+            -h help"
+else
+    echo "ERROR: type 'lifx -h' for more info"
+fi
